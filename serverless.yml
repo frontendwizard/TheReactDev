@@ -1,0 +1,12 @@
+service: TheReactDev
+
+provider:
+  name: aws
+  runtime: nodejs8.10
+  environment: ${file(env.yml)}
+
+functions:
+  scrapArticlesAndTweet:
+    handler: handler.scrapArticlesAndTweet
+    events:
+      - schedule: rate(2 minutes)
